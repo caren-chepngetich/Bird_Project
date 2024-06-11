@@ -1,0 +1,30 @@
+package com.example.myapplication
+
+import android.content.Intent
+import android.os.Bundle
+import android.widget.ImageView
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.myapplication.databinding.ActivityMainBinding
+import com.squareup.picasso.Picasso
+
+class ThirdBirdActivity : AppCompatActivity() {
+    lateinit var binding: ActivityMainBinding
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding= ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.btnNext.setOnClickListener{
+            val intent =Intent(this,FourthBirdActivity::class.java)
+            startActivity(intent)
+        }
+        Picasso
+            .get()
+            .load("https://i.pinimg.com/564x/d6/36/ff/d636ffaa12926e2976716ac6bd6ed913.jpg")
+            .into(binding.imageView2)
+
+    }
+}
